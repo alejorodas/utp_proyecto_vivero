@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_window_greenhouse_system</class>
+ <widget class="QMainWindow" name="main_window_greenhouse_system">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SISTEMA PARA LA ADMINISTRACIÓN DE VIVEROS </string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_producer">
+    <property name="title">
+     <string>Productor</string>
+    </property>
+    <addaction name="action_menu_producer_add"/>
+   </widget>
+   <widget class="QMenu" name="menu_farm">
+    <property name="title">
+     <string>Finca</string>
+    </property>
+    <addaction name="action_menu_farm_add"/>
+   </widget>
+   <addaction name="menu_producer"/>
+   <addaction name="menu_farm"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_menu_producer_add">
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+  </action>
+  <action name="action_menu_farm_add">
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

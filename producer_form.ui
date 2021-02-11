@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>form_producter</class>
+ <widget class="QWidget" name="form_producter">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>923</width>
+    <height>466</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Productor</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox_producer">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>781</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Productor</string>
+   </property>
+   <widget class="QPushButton" name="push_add_producer">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>150</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Insertar</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>60</y>
+      <width>231</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_identity_name">
+       <property name="text">
+        <string>Documento Identidad</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="line_identity_name"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_name">
+       <property name="text">
+        <string>Nombre</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="line_name"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_phone">
+       <property name="text">
+        <string>Telefono</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="line_phone"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>80</y>
+      <width>271</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout_2">
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_apellido">
+       <property name="text">
+        <string>Apellido</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="line_last_name"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_email">
+       <property name="text">
+        <string>Correo</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="line_email"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

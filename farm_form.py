@@ -6,8 +6,10 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+from utp_proyecto_vivero import farm
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 
 class Ui_form_farm(object):
@@ -35,6 +37,8 @@ class Ui_form_farm(object):
 
         self.retranslateUi(form_farm)
         QtCore.QMetaObject.connectSlotsByName(form_farm)
+        
+        self.push_add_farm.clicked.connect(self.save_farm)
 
     def retranslateUi(self, form_farm):
         _translate = QtCore.QCoreApplication.translate
@@ -48,6 +52,24 @@ class Ui_form_farm(object):
         self.window = QtWidgets.QMainWindow()
         self.setupUi(self.window)
         self.window.show()
+    
+    def save_farm(self):
+        land_registry = self.line_land_registry.text().strip()
+        municipality = self.line_municipality.text().strip()
+        
+        if (not (land_registry and municipality)):
+            self.show_pop_up("Error al insertar Productor", QMessageBox.Critical)
+        else:
+            self.farm = farm.Farm(land_registry, municipality)
+            self.show_pop_up("Productor Agregado!!", QMessageBox.Information)
+            print(self.farm)
+    
+    def show_pop_up(self, message, type_message):
+        msg = QMessageBox()
+        msg.setText(message)
+        msg.setIcon(type_message)
+        msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        retval = msg.exec_()
 
 
 if __name__ == "__main__":

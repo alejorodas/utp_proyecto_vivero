@@ -1,5 +1,5 @@
 class Farm:
-  def __init__(self, crop, land_registry,municipality):
+  def __init__(self, land_registry,municipality):
     self.__land_registry = land_registry
     self.__municipality = municipality
     self.__greenhouses = []

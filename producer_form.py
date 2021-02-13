@@ -76,6 +76,11 @@ class Ui_form_producter(object):
         self.label_phone.setText(_translate("form_producter", "Telefono"))
         self.label_apellido.setText(_translate("form_producter", "Apellido"))
         self.label_email.setText(_translate("form_producter", "Correo"))
+      
+    def show_window_producer(self):
+        self.window = QtWidgets.QMainWindow()
+        self.setupUi(self.window)
+        self.window.show()
 
 
 if __name__ == "__main__":

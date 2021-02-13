@@ -6,6 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+from utp_proyecto_vivero import producer_form as producer_window
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QAction
@@ -77,7 +78,17 @@ class Ui_main_window_greenhouse_system(object):
     
     # Se dispara cuando se selecciona la opcion Guardar Productor en el Menu
     def show_producer_add_form(self):
-        print('Open call' + self.text)
+        print('Open call')
+        # Permite que la ventana principal sea la que CREE la ventana secundaria
+        # self.window = QtWidgets.QMainWindow()
+        # self.ui_producer = producer_window.Ui_form_producter()
+        # self.ui_producer.setupUi(self.window)
+        # self.window.show()
+        
+        # Permite delegar la creacion de la ventana secundaria a la propia ventana secundaria
+        # a traves del metodo show_window_producer
+        self.ui_producer = producer_window.Ui_form_producter()
+        self.ui_producer.show_window_producer()
       
         
 

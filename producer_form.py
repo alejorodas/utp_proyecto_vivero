@@ -6,9 +6,10 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+from utp_proyecto_vivero import producer
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtWidgets import QMessageBox
 
 class Ui_form_producter(object):
     def setupUi(self, form_producter):
@@ -26,12 +27,12 @@ class Ui_form_producter(object):
         self.formLayout = QtWidgets.QFormLayout(self.layoutWidget)
         self.formLayout.setContentsMargins(0, 0, 0, 0)
         self.formLayout.setObjectName("formLayout")
-        self.label_identity_name = QtWidgets.QLabel(self.layoutWidget)
-        self.label_identity_name.setObjectName("label_identity_name")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label_identity_name)
-        self.line_identity_name = QtWidgets.QLineEdit(self.layoutWidget)
-        self.line_identity_name.setObjectName("line_identity_name")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.line_identity_name)
+        self.label_identity_document = QtWidgets.QLabel(self.layoutWidget)
+        self.label_identity_document.setObjectName("label_identity_document")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label_identity_document)
+        self.line_identity_document = QtWidgets.QLineEdit(self.layoutWidget)
+        self.line_identity_document.setObjectName("line_identity_document")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.line_identity_document)
         self.label_name = QtWidgets.QLabel(self.layoutWidget)
         self.label_name.setObjectName("label_name")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_name)
@@ -66,21 +67,44 @@ class Ui_form_producter(object):
         self.retranslateUi(form_producter)
         QtCore.QMetaObject.connectSlotsByName(form_producter)
 
+        self.push_add_producer.clicked.connect(self.save_producer)
+
     def retranslateUi(self, form_producter):
         _translate = QtCore.QCoreApplication.translate
         form_producter.setWindowTitle(_translate("form_producter", "Productor"))
         self.groupBox_producer.setTitle(_translate("form_producter", "Productor"))
         self.push_add_producer.setText(_translate("form_producter", "Insertar"))
-        self.label_identity_name.setText(_translate("form_producter", "Documento Identidad"))
+        self.label_identity_document.setText(_translate("form_producter", "Documento Identidad"))
         self.label_name.setText(_translate("form_producter", "Nombre"))
         self.label_phone.setText(_translate("form_producter", "Telefono"))
         self.label_apellido.setText(_translate("form_producter", "Apellido"))
         self.label_email.setText(_translate("form_producter", "Correo"))
+
       
     def show_window_producer(self):
         self.window = QtWidgets.QMainWindow()
         self.setupUi(self.window)
         self.window.show()
+    
+    def save_producer(self):
+        identity_document = self.line_identity_document.text().strip()
+        name = self.line_name.text().strip()
+        last_name = self.line_last_name.text().strip()
+        email = self.line_email.text().strip()
+        phone = self.line_phone.text().strip()
+        if (not (identity_document and name and last_name and email and phone)):
+            self.show_pop_up("Error al insertar Productor", QMessageBox.Critical)
+        else:
+            self.producer = producer.Producer(identity_document, name, last_name, phone, email)
+            self.show_pop_up("Productor Agregado!!", QMessageBox.Information)
+            print(self.producer)
+    
+    def show_pop_up(self, message, type_message):
+        msg = QMessageBox()
+        msg.setText(message)
+        msg.setIcon(type_message)
+        msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        retval = msg.exec_()
 
 
 if __name__ == "__main__":

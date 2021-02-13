@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from utp_proyecto_vivero import producer_form as producer_window
+from utp_proyecto_vivero import farm_form as farm_window
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QAction
@@ -43,6 +44,7 @@ class Ui_main_window_greenhouse_system(object):
         
         self.action_menu_farm_add = QtWidgets.QAction(main_window_greenhouse_system)
         self.action_menu_farm_add.setObjectName("action_menu_farm_add")
+        self.action_menu_farm_add.triggered.connect(self.show_farm_add_form)
 
         
         self.menu_producer.addAction(self.action_menu_producer_add)
@@ -77,6 +79,7 @@ class Ui_main_window_greenhouse_system(object):
         print(q.text()+ " is triggered" )
     
     # Se dispara cuando se selecciona la opcion Guardar Productor en el Menu
+    # Se dispara por un objetivo tipo QtWidgets.QAction
     def show_producer_add_form(self):
         print('Open call')
         # Permite que la ventana principal sea la que CREE la ventana secundaria
@@ -89,8 +92,11 @@ class Ui_main_window_greenhouse_system(object):
         # a traves del metodo show_window_producer
         self.ui_producer = producer_window.Ui_form_producter()
         self.ui_producer.show_window_producer()
-      
-        
+
+
+    def show_farm_add_form(self):
+        self.ui_farm = farm_window.Ui_form_farm()
+        self.ui_farm.show_window_farm()
 
 
 if __name__ == "__main__":

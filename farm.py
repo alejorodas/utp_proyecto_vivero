@@ -41,9 +41,7 @@ class Farm:
     
   def __str__(self):
 
-    cadena = "Cultivo: {} Registro Catastral: {} Municipio: {}".format(self.__crop,
-                                                                       self.__land_registry,
-                                                                       self.__municipality)
+    cadena = "Registro Catastral: {} Municipio: {}".format(self.__land_registry, self.__municipality)
     return cadena
     
   

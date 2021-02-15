@@ -12,6 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
 class Ui_form_producter(object):
+    producer = ''
+    
     def setupUi(self, form_producter):
         form_producter.setObjectName("form_producter")
         form_producter.resize(923, 466)
@@ -96,6 +98,9 @@ class Ui_form_producter(object):
             self.show_pop_up("Error al insertar Productor", QMessageBox.Critical)
         else:
             self.producer = producer.Producer(identity_document, name, last_name, phone, email)
+            
+            Ui_form_producter.producer = self.producer
+            
             self.show_pop_up("Productor Agregado!!", QMessageBox.Information)
             print(self.producer)
     

@@ -99,6 +99,12 @@ class Ui_Dialog(object):
         item.setText(_translate("Dialog", "Núm. Catastro"))
         item = self.table_farm_properties.horizontalHeaderItem(1)
         item.setText(_translate("Dialog", "Municipio"))
+      
+    
+    def show_window_search_procuder(self):
+        self.window = QtWidgets.QMainWindow()
+        self.setupUi(self.window)
+        self.window.show()
 
 
 if __name__ == "__main__":

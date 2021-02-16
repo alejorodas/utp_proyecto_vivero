@@ -8,6 +8,7 @@
 
 from utp_proyecto_vivero import producer_form as producer_window
 from utp_proyecto_vivero import farm_form as farm_window
+from utp_proyecto_vivero import searh_producer_farm as search_producer_window
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QAction
@@ -41,6 +42,7 @@ class Ui_main_window_greenhouse_system(object):
 
         self.action_menu_producer_search = QtWidgets.QAction(main_window_greenhouse_system)
         self.action_menu_producer_search.setObjectName("action_menu_producer_search")
+        self.action_menu_producer_search.triggered.connect(self.search_producer_form)
         
         self.action_menu_farm_add = QtWidgets.QAction(main_window_greenhouse_system)
         self.action_menu_farm_add.setObjectName("action_menu_farm_add")
@@ -97,6 +99,10 @@ class Ui_main_window_greenhouse_system(object):
     def show_farm_add_form(self):
         self.ui_farm = farm_window.Ui_form_farm()
         self.ui_farm.show_window_farm()
+    
+    def search_producer_form(self):
+        self.ui_search_producer = search_producer_window.Ui_Dialog()
+        self.ui_search_producer.show_window_search_procuder()
 
 
 if __name__ == "__main__":

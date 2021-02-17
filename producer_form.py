@@ -97,12 +97,10 @@ class Ui_form_producter(object):
         if (not (identity_document and name and last_name and email and phone)):
             self.show_pop_up("Error al insertar Productor", QMessageBox.Critical)
         else:
-            self.producer = producer.Producer(identity_document, name, last_name, phone, email)
-            
-            Ui_form_producter.producer = self.producer
-            
+            Ui_form_producter.producer = producer.Producer(identity_document, name, last_name, phone, email)
+
             self.show_pop_up("Productor Agregado!!", QMessageBox.Information)
-            print(self.producer)
+            print(Ui_form_producter.producer)
     
     def show_pop_up(self, message, type_message):
         msg = QMessageBox()

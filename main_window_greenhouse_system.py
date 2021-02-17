@@ -14,6 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QAction
 
 class Ui_main_window_greenhouse_system(object):
+    
+    greenhouse_system_register_list = []
+    
     def setupUi(self, main_window_greenhouse_system):
         main_window_greenhouse_system.setObjectName("main_window_greenhouse_system")
         main_window_greenhouse_system.resize(800, 600)

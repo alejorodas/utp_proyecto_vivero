@@ -5,7 +5,7 @@
 # Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
-
+from utp_proyecto_vivero import main_window_greenhouse_system as main_window
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -85,6 +85,8 @@ class Ui_Dialog(object):
         Dialog.setTabOrder(self.line_last_name, self.line_email)
         Dialog.setTabOrder(self.line_email, self.line_phone)
 
+        self.push_search_producer.clicked.connect(self.search_producer_by_id)
+
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Buscar Productor"))
@@ -105,6 +107,28 @@ class Ui_Dialog(object):
         self.window = QtWidgets.QMainWindow()
         self.setupUi(self.window)
         self.window.show()
+    
+    def search_producer_by_id(self):
+        greenhouses_registers = main_window.Ui_main_window_greenhouse_system.greenhouse_system_register_list
+        print()
+        # for producer_register in greenhouses_registers:
+        #     if producer_register.identity_document == self.line_identity_document:
+        #         self.show_data_producer(producer_register)
+        #         break
+
+
+    def show_data_producer(self, producer_register):
+        # Aca llena con los datos del productor
+        self.line_name.setText(producer_register)
+        self.line_last_name.setText(producer_register)
+        self.line_email.setText(producer_register)
+        self.line_phone.setText(producer_register)
+        number_of_registers = 0
+        # for register in producer_register:
+        #     # Aca llena la tabla widget
+        #     self.table_farm_properties.setItem(number_of_registers, 0,QtWidgets.QTableWidgetItem(registro_catastral))
+        #     self.table_farm_properties.setItem(number_of_registers, 1, QtWidgets.QTableWidgetItem(municipio))
+        #     number_of_registers += 1
 
 
 if __name__ == "__main__":

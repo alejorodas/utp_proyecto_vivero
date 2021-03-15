@@ -5,7 +5,9 @@
 # Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
-from utp_proyecto_vivero import main_window_greenhouse_system as main_window
+
+import main_window_greenhouse_system as main_window
+
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -72,6 +74,7 @@ class Ui_Dialog(object):
         self.table_farm_properties.setObjectName("table_farm_properties")
         self.table_farm_properties.setColumnCount(2)
         self.table_farm_properties.setRowCount(0)
+        self.table_farm_properties.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         item = QtWidgets.QTableWidgetItem()
         self.table_farm_properties.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -110,25 +113,33 @@ class Ui_Dialog(object):
     
     def search_producer_by_id(self):
         greenhouses_registers = main_window.Ui_main_window_greenhouse_system.greenhouse_system_register_list
-        print()
-        # for producer_register in greenhouses_registers:
-        #     if producer_register.identity_document == self.line_identity_document:
-        #         self.show_data_producer(producer_register)
-        #         break
+        identity_document_to_find = self.line_identity_document.text()
+        for producer_register in greenhouses_registers:
+            to_compare = producer_register.identity_document
+            if to_compare == identity_document_to_find:
+                self.show_data_producer(producer_register)
+                break
 
 
     def show_data_producer(self, producer_register):
         # Aca llena con los datos del productor
-        self.line_name.setText(producer_register)
-        self.line_last_name.setText(producer_register)
-        self.line_email.setText(producer_register)
-        self.line_phone.setText(producer_register)
-        number_of_registers = 0
-        # for register in producer_register:
-        #     # Aca llena la tabla widget
-        #     self.table_farm_properties.setItem(number_of_registers, 0,QtWidgets.QTableWidgetItem(registro_catastral))
-        #     self.table_farm_properties.setItem(number_of_registers, 1, QtWidgets.QTableWidgetItem(municipio))
-        #     number_of_registers += 1
+        self.line_name.setText(producer_register.name)
+        self.line_last_name.setText(producer_register.last_name)
+        self.line_email.setText(producer_register.email)
+        self.line_phone.setText(producer_register.phone)
+
+        num_rows = self.table_farm_properties.rowCount()
+        self.table_farm_properties.insertRow(num_rows)
+        
+        for register in producer_register.farms:
+            # Aca llena la tabla widget
+            register_land_registry = register.land_registry
+            register_municipality = register.municipality
+
+            self.table_farm_properties.setItem(num_rows, 0, QtWidgets.QTableWidgetItem(register_land_registry))
+            self.table_farm_properties.setItem(num_rows, 1, QtWidgets.QTableWidgetItem(register_municipality))
+            self.table_farm_properties.resizeColumnsToContents()
+
 
 
 if __name__ == "__main__":

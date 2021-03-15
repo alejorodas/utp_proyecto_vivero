@@ -9,7 +9,7 @@ class Producer:
   
   @property
   def identity_document(self):
-    return self.identity_document
+    return self.__identity_document
   
   @identity_document.setter
   def identity_document(self, identity_document):
@@ -25,7 +25,7 @@ class Producer:
   
   @property
   def last_name(self):
-    return self.last_name
+    return self.__last_name
   
   @last_name.setter
   def last_name(self, last_name):
@@ -33,7 +33,7 @@ class Producer:
   
   @property
   def phone(self):
-    return self.phone
+    return self.__phone
   
   @phone.setter
   def phone(self, phone):
@@ -41,7 +41,7 @@ class Producer:
     
   @property
   def email(self):
-    return self.email
+    return self.__email
   
   @email.setter
   def email(self, email):

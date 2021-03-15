@@ -14,7 +14,7 @@ class Farm:
   
   @property
   def land_registry(self):
-    return self.land_registry
+    return self.__land_registry
   
   @land_registry.setter
   def land_registry(self, land_registry):

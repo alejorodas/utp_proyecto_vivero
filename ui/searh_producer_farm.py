@@ -6,10 +6,9 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-import main_window_greenhouse_system as main_window
+from utp_proyecto_vivero.ui import main_window_greenhouse_system as main_window
 
-
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 
 class Ui_Dialog(object):

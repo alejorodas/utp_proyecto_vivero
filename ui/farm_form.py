@@ -6,11 +6,11 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-import farm
+from utp_proyecto_vivero.model import farm
 import main_window_greenhouse_system as main_greenhouse
 import producer_form
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
 

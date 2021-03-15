@@ -6,9 +6,9 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-import producer
+from utp_proyecto_vivero.model import producer
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
 class Ui_form_producter(object):

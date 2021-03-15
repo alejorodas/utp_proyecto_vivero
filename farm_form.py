@@ -6,9 +6,9 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from utp_proyecto_vivero import farm
-from utp_proyecto_vivero import main_window_greenhouse_system as main_greenhouse
-from utp_proyecto_vivero import producer_form
+import farm
+import main_window_greenhouse_system as main_greenhouse
+import producer_form
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
@@ -43,7 +43,6 @@ class Ui_form_farm(object):
         self.retranslateUi(form_farm)
         QtCore.QMetaObject.connectSlotsByName(form_farm)
 
-        Ui_form_farm.producer_to_associated = producer_form.Ui_form_producter.producer
         self.push_add_farm.clicked.connect(self.save_farm)
 
     def retranslateUi(self, form_farm):
@@ -81,10 +80,13 @@ class Ui_form_farm(object):
     
 
     def save_register(self):
-        for farm in Ui_form_farm.farms_to_add:
-            producer_and_farms = Ui_form_farm.producer_to_associated.asociar(farm)
-            greenhouse_list = main_greenhouse.Ui_main_window_greenhouse_system.greenhouse_system_register_list.append(producer_and_farms)
-            print("Guardar registro: ", farm)
+        producer_to_associated = producer_form.Ui_form_producter.producer
+        for farm_register in Ui_form_farm.farms_to_add:
+            producer_to_associated.asociar(farm_register)
+            producer_and_farms = producer_to_associated.farms
+            main_greenhouse.Ui_main_window_greenhouse_system.greenhouse_system_register_list.append(producer_to_associated)
+
+        greenhouse_list = main_greenhouse.Ui_main_window_greenhouse_system.greenhouse_system_register_list
         print("Guardar Registro:", producer_form.Ui_form_producter.producer)
 
 

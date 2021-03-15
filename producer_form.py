@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from utp_proyecto_vivero import producer
+import producer
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox

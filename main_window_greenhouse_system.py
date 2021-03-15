@@ -6,9 +6,10 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from utp_proyecto_vivero import producer_form as producer_window
-from utp_proyecto_vivero import farm_form as farm_window
-from utp_proyecto_vivero import searh_producer_farm as search_producer_window
+
+import producer_form as producer_window
+import farm_form as farm_window
+import searh_producer_farm as search_producer_window
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QAction

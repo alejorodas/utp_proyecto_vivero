@@ -6,7 +6,8 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from utp_proyecto_vivero.model import farm
+from utp_proyecto_vivero.controller import controller_farm as c_f
+
 import main_window_greenhouse_system as main_greenhouse
 import producer_form
 
@@ -58,17 +59,17 @@ class Ui_form_farm(object):
         self.setupUi(self.window)
         self.window.show()
     
-    def save_farm(self, producer):
+    def save_farm(self):
         land_registry = self.line_land_registry.text().strip()
         municipality = self.line_municipality.text().strip()
         
         if (not (land_registry and municipality)):
-            self.show_pop_up("Error al insertar Productor", QMessageBox.Critical)
+            self.show_pop_up("Los campos estan en blanco", QMessageBox.Critical)
         else:
-            self.farm = farm.Farm(land_registry, municipality)
-            Ui_form_farm.farms_to_add.append(self.farm)
-            self.save_register()
-            self.show_pop_up("Productor Agregado!!", QMessageBox.Information)
+            c_f.ControllerFarm.create(land_registry = land_registry,
+                                        municipality = municipality)
+
+            self.show_pop_up("Finca Agregada!!", QMessageBox.Information)
 
     
     def show_pop_up(self, message, type_message):

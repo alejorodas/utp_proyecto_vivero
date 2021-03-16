@@ -55,9 +55,9 @@ class Producer:
   def farms(self, farm):
     self.__farms.append(farm)
   
-  def asociar(self,farm):
+  def associated_to(self,farm):
     self.farms = farm
-  
+
 
   
   def __str__(self):

@@ -9,15 +9,13 @@
 
 import producer_form as producer_window
 import farm_form as farm_window
-import searh_producer_farm as search_producer_window
+import search_producer_farm as search_producer_window
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QAction
 
 class Ui_main_window_greenhouse_system(object):
-    
-    greenhouse_system_register_list = []
-    
+
     def setupUi(self, main_window_greenhouse_system):
         main_window_greenhouse_system.setObjectName("main_window_greenhouse_system")
         main_window_greenhouse_system.resize(800, 600)
@@ -87,7 +85,6 @@ class Ui_main_window_greenhouse_system(object):
     # Se dispara cuando se selecciona la opcion Guardar Productor en el Menu
     # Se dispara por un objetivo tipo QtWidgets.QAction
     def show_producer_add_form(self):
-        print('Open call')
         # Permite que la ventana principal sea la que CREE la ventana secundaria
         # self.window = QtWidgets.QMainWindow()
         # self.ui_producer = producer_window.Ui_form_producter()

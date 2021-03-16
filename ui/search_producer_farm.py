@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from utp_proyecto_vivero.ui import main_window_greenhouse_system as main_window
+from utp_proyecto_vivero.controller.controller_producer import ControllerProducer as c_p
 
 from PyQt5 import QtCore, QtWidgets
 
@@ -111,14 +111,9 @@ class Ui_Dialog(object):
         self.window.show()
     
     def search_producer_by_id(self):
-        greenhouses_registers = main_window.Ui_main_window_greenhouse_system.greenhouse_system_register_list
         identity_document_to_find = self.line_identity_document.text()
-        for producer_register in greenhouses_registers:
-            to_compare = producer_register.identity_document
-            if to_compare == identity_document_to_find:
-                self.show_data_producer(producer_register)
-                break
-
+        procedure = c_p.search_by(identity_document = identity_document_to_find)
+        self.show_data_producer(procedure)
 
     def show_data_producer(self, producer_register):
         # Aca llena con los datos del productor

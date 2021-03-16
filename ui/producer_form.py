@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from utp_proyecto_vivero.model import producer
+from utp_proyecto_vivero.controller import controller_producer as c_p
 
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
@@ -95,9 +95,13 @@ class Ui_form_producter(object):
         email = self.line_email.text().strip()
         phone = self.line_phone.text().strip()
         if (not (identity_document and name and last_name and email and phone)):
-            self.show_pop_up("Error al insertar Productor", QMessageBox.Critical)
+            self.show_pop_up("Los campos estan en blanco", QMessageBox.Critical)
         else:
-            Ui_form_producter.producer = producer.Producer(identity_document, name, last_name, phone, email)
+            c_p.ControllerProducer.create(identity_document = identity_document,
+                                            name = name,
+                                            last_name = last_name,
+                                            phone = phone,
+                                            email = email)
 
             self.show_pop_up("Productor Agregado!!", QMessageBox.Information)
             print(Ui_form_producter.producer)

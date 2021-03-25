@@ -72,7 +72,7 @@ class Ui_Dialog(object):
         self.table_farm_properties.setGeometry(QtCore.QRect(100, 370, 581, 192))
         self.table_farm_properties.setObjectName("table_farm_properties")
         self.table_farm_properties.setColumnCount(2)
-        self.table_farm_properties.setRowCount(0)
+        #self.table_farm_properties.setRowCount(0)
         self.table_farm_properties.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         item = QtWidgets.QTableWidgetItem()
         self.table_farm_properties.setHorizontalHeaderItem(0, item)
@@ -122,9 +122,9 @@ class Ui_Dialog(object):
         self.line_email.setText(producer_register.email)
         self.line_phone.setText(producer_register.phone)
 
-        num_rows = self.table_farm_properties.rowCount()
-        self.table_farm_properties.insertRow(num_rows)
-        
+        self.table_farm_properties.setRowCount(len(producer_register.farms))
+        num_rows = 0
+
         for register in producer_register.farms:
             # Aca llena la tabla widget
             register_land_registry = register.land_registry
@@ -132,6 +132,7 @@ class Ui_Dialog(object):
 
             self.table_farm_properties.setItem(num_rows, 0, QtWidgets.QTableWidgetItem(register_land_registry))
             self.table_farm_properties.setItem(num_rows, 1, QtWidgets.QTableWidgetItem(register_municipality))
+            num_rows += 1
             self.table_farm_properties.resizeColumnsToContents()
 
 

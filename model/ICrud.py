@@ -11,7 +11,7 @@ class ICrud(ABC):
   def search_by(self, **kwargs):
     raise NotImplementedError
 
-  
-  def has_many(self, one, many):
+  @staticmethod
+  def has_many(one, many):
     for m in many:
       one.associated_to(m)
